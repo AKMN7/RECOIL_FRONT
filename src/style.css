@@ -10,6 +10,7 @@
 	padding: 0;
 	-webkit-box-sizing: inherit;
 	box-sizing: border-box;
+	font-family: "Kanit", sans-serif;
 }
 
 html {
@@ -17,11 +18,23 @@ html {
 }
 
 button {
-	border: 0;
 	padding: 0;
 	font-family: inherit;
 	background: transparent;
 	cursor: pointer;
 }
 
+body {
+	background-color: black;
+}
+
 /* NORMALIZATION END */
+
+.br-test {
+	border: 2px solid red;
+}
+
+.product-card {
+	background: url(./assets/mesh-bg.png) no-repeat;
+	background-size: cover;
+}
