@@ -2,14 +2,14 @@
 	<section class="container m-auto p-4 space-y-14">
 		<header class="w-full p-4 flex items-center justify-between">
 			<div class="">
-				<img src="./assets/logo.png" alt="Logo" class="h-8" />
+				<img src="./assets/logo.png" alt="Logo" class="h-6 md:h-8" />
 			</div>
 			<a
 				href="https://www.linkedin.com/in/anas-nassar-a164ab211/"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="bg-darkGrey border border-grey rounded-lg py-2 px-4 text-white hover:border-white hover:bg-grey transition-all duration-300">
-				Conact Developer
+				Contact Developer
 			</a>
 		</header>
 		<div v-motion-slide-top :delay="400" class="w-full flex flex-col items-center justify-center space-y-4">
@@ -20,7 +20,7 @@
 		</div>
 		<div v-motion-slide-left :delay="400" class="w-full flex items-center justify-center flex-wrap text-white">
 			<div
-				class="product-card max-w-[600px] min-w-[400px] flex flex-col items-center justify-center space-y-3 p-10 m-6 rounded-lg border hover:border-2 hover:scale-105 hover:border-primary cursor-pointer transition-all duration-500">
+				class="product-card w-[45%] min-w-[350px] max-w-[600px] flex flex-col items-center justify-center space-y-3 p-6 m-4 rounded-lg border hover:border-4 hover:scale-105 hover:border-primary cursor-pointer transition-all duration-300">
 				<img src="./assets/first_illus.svg" alt="Generation" class="h-44 w-44" />
 				<h4 class="text-black text-3xl font-semibold">Detection</h4>
 				<p class="w-[85%] text-center text-lg text-darkGrey">
@@ -29,7 +29,7 @@
 				</p>
 			</div>
 			<div
-				class="product-card max-w-[600px] min-w-[400px] flex flex-col items-center justify-center space-y-3 p-10 m-6 rounded-lg border hover:border-2 hover:scale-105 hover:border-primary cursor-pointer transition-all duration-500">
+				class="product-card w-[45%] min-w-[350px] max-w-[600px] flex flex-col items-center justify-center space-y-3 p-6 m-4 rounded-lg border hover:border-4 hover:scale-105 hover:border-primary cursor-pointer transition-all duration-300">
 				<img src="./assets/second_illus.svg" alt="Generation" class="h-44 w-44" />
 				<h4 class="text-black text-3xl font-semibold">Generation</h4>
 				<p class="w-[90%] text-center text-lg text-darkGrey">
