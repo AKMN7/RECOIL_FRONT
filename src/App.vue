@@ -13,7 +13,7 @@
 			</a>
 		</header>
 		<div v-motion-slide-top :delay="400" class="w-full flex flex-col items-center justify-center space-y-4">
-			<h1 class="text-7xl lg:text-9xl text-grey font-bold tracking-normal">Recoil.</h1>
+			<h1 class="glowing text-7xl lg:text-9xl text-white font-bold tracking-normal">Recoil.</h1>
 			<p class="text-4xl lg:text-6xl w-4/5 lg:w-2/3 text-center text-white font-semibold tracking-tight">
 				A silmple to use playground, Ustilising AI capabilites!
 			</p>
