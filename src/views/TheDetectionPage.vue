@@ -1,0 +1,15 @@
+<template>
+	<section class="container m-auto p-4 space-y-14">
+		<header class="w-full p-4 flex items-center justify-between">
+			<button @click="$router.go(-1)" class="text-4xl text-white">&larr;</button>
+			<router-link
+				to="/generation"
+				class="bg-darkGrey border border-grey rounded-lg py-2 px-4 text-white hover:border-white hover:bg-grey transition-all duration-300">
+				Generation
+			</router-link>
+		</header>
+		<div v-motion-slide-top :delay="400" class="w-full flex flex-col items-center justify-center">
+			<h1 class="glowing text-7xl lg:text-9xl text-white font-bold tracking-normal">Detection</h1>
+		</div>
+	</section>
+</template>
