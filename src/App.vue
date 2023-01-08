@@ -1,3 +1,3 @@
 <template>
-	<router-view></router-view>
+	<router-view :key="this.$route.path" />
 </template>

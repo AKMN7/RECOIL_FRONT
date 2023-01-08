@@ -3,12 +3,14 @@ import { createRouter, createWebHistory } from "vue-router";
 import TheLandingPage from "./views/TheLandingPage.vue";
 import TheDetectionPage from "./views/TheDetectionPage.vue";
 import TheGenerationPage from "./views/TheGenerationPage.vue";
+import DetectionMain from "./components/DetectionMain.vue";
 
 const router = createRouter({
 	history: createWebHistory(),
 	routes: [
 		{ path: "/", component: TheLandingPage },
 		{ path: "/detection", component: TheDetectionPage },
+		{ path: "/detection/:service", component: DetectionMain },
 		{ path: "/generation", component: TheGenerationPage },
 	],
 	scrollBehavior() {

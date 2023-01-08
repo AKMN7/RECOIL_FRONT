@@ -39,6 +39,11 @@ body {
 	background-size: cover;
 }
 
+.product-card-1 {
+	background: url(./assets/mesh-bg-1.png) no-repeat;
+	background-size: cover;
+}
+
 .glowing {
 	animation-name: glow;
 	animation-duration: 800ms;

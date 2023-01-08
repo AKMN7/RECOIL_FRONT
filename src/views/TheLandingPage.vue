@@ -18,7 +18,7 @@
 				A silmple to use playground, Ustilising AI capabilites!
 			</p>
 		</div>
-		<div v-motion-slide-left :delay="400" class="w-full flex items-center justify-center flex-wrap text-white">
+		<div v-motion-slide-left :delay="800" class="w-full flex items-center justify-center flex-wrap text-white">
 			<div
 				@click="navigateTo('/detection')"
 				class="product-card w-[45%] min-w-[350px] max-w-[600px] flex flex-col items-center justify-center space-y-3 p-6 m-4 rounded-lg border hover:border-4 hover:scale-105 hover:border-primary cursor-pointer transition-all duration-300">
