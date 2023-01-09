@@ -10,7 +10,7 @@
 				</router-link>
 			</slot>
 		</header>
-		<div v-motion-slide-top :delay="400" class="w-full flex flex-col items-center justify-center">
+		<div class="w-full flex flex-col items-center justify-center">
 			<h1 class="glowing text-7xl lg:text-9xl text-white font-bold tracking-normal text-center">
 				<slot name="title">---</slot>
 			</h1>

@@ -44,7 +44,7 @@
 					name: "Webcam Face Expression Recognition",
 					desc: "Automatically recognize face experssions made through your webcam!",
 					image: "src/assets/sixith_illus.svg",
-					url: "/detection/webcam-face-detection",
+					url: "/detection/webcam-face-expression-recognition",
 				},
 			];
 

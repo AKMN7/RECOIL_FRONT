@@ -11,24 +11,37 @@
 			<template #title>{{ service }}</template>
 		</the-header>
 
-		<div class="h-44 w-full br-test"></div>
+		<div id="video-stream" class="w-full h-fit flex items-center justify-center">
+			<video id="video" class="rounded-xl" height="750" width="750" autoplay muted></video>
+		</div>
 	</section>
 </template>
 
 <script>
-	import { useRoute } from "vue-router";
+	import face from "../face";
 	import TheHeader from "./TheHeader.vue";
 	export default {
 		components: { TheHeader },
-		setup() {
-			const route = useRoute();
-
+		data() {
+			return {
+				service: "",
+			};
+		},
+		async created() {
 			const refactorName = (name) =>
 				name.replace(/-/g, " ").replace(/(^\w|\s\w)(\S*)/g, (_, m1, m2) => m1.toUpperCase() + m2.toLowerCase());
+			this.service = refactorName(this.$route.params.service);
 
-			let service = refactorName(route.params.service);
-
-			return { service };
+			try {
+				await face.initVideo(this.$route.params.service);
+				console.log("Video Fired");
+			} catch (error) {
+				console.log("Error ->", error);
+			}
+		},
+		beforeUnmount() {
+			console.log("Unmouunted");
+			face.killInterval();
 		},
 	};
 </script>
