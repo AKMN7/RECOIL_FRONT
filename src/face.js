@@ -33,36 +33,30 @@ async function initVideo(type) {
 			faceapi.matchDimensions(canvas, displaySize);
 
 			interval = setInterval(async () => {
-				if (type === "webcam-face-expression-recognition") {
-					webcamWithExpressions(video, displaySize, canvas);
-				} else {
-					webcamWithOutExpressions(video, displaySize, canvas);
-				}
+				activateFaceAPI(video, displaySize, canvas, type);
 			}, 100);
 		});
 	});
 }
 
-async function webcamWithExpressions(video, displaySize, canvas) {
-	const detections = await faceapi
-		.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
-		.withFaceLandmarks()
-		.withFaceExpressions();
+async function activateFaceAPI(video, displaySize, canvas, type) {
+	let detections;
+
+	if (type === "webcam-face-expression-recognition") {
+		detections = await faceapi
+			.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+			.withFaceLandmarks()
+			.withFaceExpressions();
+	} else {
+		detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
+	}
 
 	const resizedDetections = faceapi.resizeResults(detections, displaySize);
 	canvas.getContext("2d", { willReadFrequently: true }).clearRect(0, 0, canvas.width, canvas.height);
 	faceapi.draw.drawDetections(canvas, resizedDetections);
 	faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
-	faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
-}
 
-async function webcamWithOutExpressions(video, displaySize, canvas) {
-	const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
-
-	const resizedDetections = faceapi.resizeResults(detections, displaySize);
-	canvas.getContext("2d", { willReadFrequently: true }).clearRect(0, 0, canvas.width, canvas.height);
-	faceapi.draw.drawDetections(canvas, resizedDetections);
-	faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
+	if (type === "webcam-face-expression-recognition") faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
 }
 
 function killInterval() {

@@ -63,3 +63,9 @@ body {
 canvas {
 	position: absolute;
 }
+
+@media (width <= 768px) {
+	canvas {
+		width: 100%;
+	}
+}

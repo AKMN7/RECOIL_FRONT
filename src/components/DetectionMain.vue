@@ -25,12 +25,15 @@
 		data() {
 			return {
 				service: "",
+				webcamService: false,
 			};
 		},
 		async created() {
 			const refactorName = (name) =>
 				name.replace(/-/g, " ").replace(/(^\w|\s\w)(\S*)/g, (_, m1, m2) => m1.toUpperCase() + m2.toLowerCase());
 			this.service = refactorName(this.$route.params.service);
+
+			console.log(this.service.startsWith("Webcam"));
 
 			try {
 				await face.initVideo(this.$route.params.service);
