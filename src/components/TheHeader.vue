@@ -11,7 +11,7 @@
 			</slot>
 		</header>
 		<div class="w-full flex flex-col items-center justify-center">
-			<h1 class="glowing text-7xl lg:text-9xl text-white font-bold tracking-normal text-center">
+			<h1 class="glowing text-6xl lg:text-8xl text-white font-bold tracking-normal text-center">
 				<slot name="title">---</slot>
 			</h1>
 		</div>

@@ -1,5 +1,6 @@
 <template>
-	<section class="container m-auto p-4 space-y-14">
+	<section class="container m-auto p-4 space-y-12 relative">
+		<!-- Header -->
 		<the-header>
 			<template #redirector>
 				<router-link
@@ -11,11 +12,20 @@
 			<template #title>{{ service }}</template>
 		</the-header>
 
-		<div v-if="webcamService" id="video-stream" class="w-full h-fit flex items-center justify-center">
+		<!-- Loader -->
+		<the-loader v-if="loading" />
+
+		<!-- Webcam Service -->
+		<div
+			v-if="webcamService"
+			id="video-stream"
+			class="w-full h-fit flex items-center justify-center"
+			:class="{ hidden: loading }">
 			<video id="video" class="rounded-xl" height="750" width="750" autoplay muted></video>
 		</div>
 
-		<image-selection v-else @pic-change="updatedPicture" />
+		<!-- Image Service -->
+		<image-selection v-else @pic-change="updatedPicture" :class="{ hidden: loading }" />
 	</section>
 </template>
 
@@ -23,12 +33,14 @@
 	import face from "../face";
 	import TheHeader from "./TheHeader.vue";
 	import ImageSelection from "./ImageSelection.vue";
+	import TheLoader from "./TheLoader.vue";
 	export default {
-		components: { TheHeader, ImageSelection },
+		components: { TheHeader, ImageSelection, TheLoader },
 		data() {
 			return {
 				service: "",
 				webcamService: false,
+				loading: true,
 			};
 		},
 		async created() {
@@ -45,14 +57,16 @@
 					await face.initPicture(this.service);
 				}
 
-				console.log("Finished TRC/CATCH");
+				this.loading = false;
 			} catch (error) {
 				console.log("Error ->", error);
 			}
 		},
 		methods: {
 			async updatedPicture() {
-				await face.initPicture(this.service);
+				this.loading = true;
+				await face.updateImg(this.service);
+				this.loading = false;
 			},
 			refactorName(name) {
 				return name.replace(/-/g, " ").replace(/(^\w|\s\w)(\S*)/g, (_, m1, m2) => m1.toUpperCase() + m2.toLowerCase());

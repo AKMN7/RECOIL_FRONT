@@ -1,10 +1,14 @@
 <template>
 	<div id="image-container" class="w-full h-fit flex flex-col items-center justify-center space-y-4 relative">
-		<input type="file" accept="image/*" ref="file" @change="onFileSelected" class="hidden" name="profilePic" />
+		<input id="image-select" type="file" accept="image/*" ref="file" @change="onFileSelected" class="hidden" />
 
 		<div class="w-full h-fit flex items-center justify-center">
-			<img id="image" :src="selectedFile" alt="image" class="w-[80%] md:w-[65%] object-cover object-top" />
-			<canvas id="overlay" class="w-[80%] md:w-[65%]"></canvas>
+			<img
+				id="image"
+				:src="selectedFile"
+				alt="image"
+				class="w-[80%] md:w-[60%] object-cover object-top rounded-lg border-2 border-primary" />
+			<canvas id="overlay" class="w-[80%] md:w-[60%]"></canvas>
 		</div>
 
 		<button
@@ -25,17 +29,6 @@
 		},
 		methods: {
 			async onFileSelected(event) {
-				this.selectedFile = event.target.files[0];
-
-				const fd = new FormData();
-				fd.append("profilePic", this.selectedFile);
-
-				let reader = new FileReader();
-				reader.readAsDataURL(this.selectedFile);
-				reader.onload = (e) => {
-					this.selectedFile = e.target.result;
-				};
-
 				this.$emit("picChange");
 			},
 			browse() {

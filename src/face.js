@@ -1,7 +1,7 @@
 import * as faceapi from "face-api.js";
-
 let interval;
 
+// Function To Load face-api.js requried models
 async function loadModels() {
 	await Promise.all([
 		faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
@@ -12,6 +12,7 @@ async function loadModels() {
 	]);
 }
 
+// Function to Initiate Vide Analysis
 async function initVideo(type) {
 	const video = document.getElementById("video");
 
@@ -40,6 +41,32 @@ async function initVideo(type) {
 	});
 }
 
+// Function to Kill Interval made by the video analysis
+function killInterval() {
+	clearInterval(interval);
+}
+
+// Function to initiate Image Analysis
+async function initPicture(type) {
+	const image = document.getElementById("image");
+	const canvas = document.getElementById("overlay");
+	const displaySize = { width: image.width, height: image.height };
+
+	faceapi.matchDimensions(canvas, displaySize);
+
+	await activateFaceAPI(image, displaySize, canvas, type);
+}
+
+// Function to update selected image
+async function updateImg(type) {
+	const imgInput = document.getElementById("image-select").files[0];
+	const img = await faceapi.bufferToImage(imgInput);
+
+	document.getElementById("image").src = img.src;
+	await initPicture(type);
+}
+
+// Function to active the face-api for both video and image analysis
 async function activateFaceAPI(media, displaySize, canvas, type) {
 	let detections;
 
@@ -68,20 +95,4 @@ async function activateFaceAPI(media, displaySize, canvas, type) {
 	if (type.includes("Expression")) faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
 }
 
-function killInterval() {
-	console.log("Interval Killed");
-	clearInterval(interval);
-}
-
-async function initPicture(type) {
-	console.log("IMAGE PROCESSING");
-	const image = document.getElementById("image");
-	const canvas = document.getElementById("overlay");
-	const displaySize = { width: image.width, height: image.height };
-
-	faceapi.matchDimensions(canvas, displaySize);
-
-	await activateFaceAPI(image, displaySize, canvas, type);
-}
-
-export default { loadModels, initVideo, killInterval, initPicture };
+export default { loadModels, initVideo, killInterval, initPicture, updateImg };
