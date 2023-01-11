@@ -1,5 +1,5 @@
 <template>
-	<section class="container m-auto p-4 space-y-12 relative">
+	<section class="container m-auto p-4 space-y-14 relative">
 		<!-- Header -->
 		<the-header>
 			<template #redirector>
@@ -21,7 +21,7 @@
 			id="video-stream"
 			class="w-full h-fit flex items-center justify-center"
 			:class="{ hidden: loading }">
-			<video id="video" class="rounded-xl" height="750" width="750" autoplay muted></video>
+			<video id="video" class="rounded-xl border-2 border-primary" height="650" width="650" autoplay muted></video>
 		</div>
 
 		<!-- Image Service -->
