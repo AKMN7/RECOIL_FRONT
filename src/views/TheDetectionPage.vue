@@ -28,25 +28,25 @@
 				{
 					name: "Face Detection",
 					desc: "Automatically detect faces through imported images of your choice.",
-					image: "src/assets/thrid_illus.svg",
+					image: "/assets/thrid_illus.svg",
 					url: "/detection/face-detection",
 				},
 				{
 					name: "Face Expression Recognition",
 					desc: "Automatically recognize expressions made by faces detected on images chosen.",
-					image: "src/assets/fourth_illus.svg",
+					image: "/assets/fourth_illus.svg",
 					url: "/detection/face-expression",
 				},
 				{
 					name: "Webcam Face Detection",
 					desc: "Automatically detect faces through webcam in the browser!",
-					image: "src/assets/fifth_illus.svg",
+					image: "/assets/fifth_illus.svg",
 					url: "/detection/webcam-face-detection",
 				},
 				{
 					name: "Webcam Face Expression Recognition",
 					desc: "Automatically recognize face experssions made through your webcam!",
-					image: "src/assets/sixith_illus.svg",
+					image: "/assets/sixith_illus.svg",
 					url: "/detection/webcam-face-expression-recognition",
 				},
 			];

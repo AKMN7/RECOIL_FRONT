@@ -24,7 +24,7 @@
 		emits: ["picChange"],
 		data() {
 			return {
-				selectedFile: "/src/assets/bbt1.jpg",
+				selectedFile: "/assets/bbt1.jpg",
 			};
 		},
 		methods: {
