@@ -13,13 +13,16 @@
 
 		<service-option :services="services" />
 	</section>
+
+	<the-footer />
 </template>
 
 <script>
 	import ServiceOption from "../components/ServiceOption.vue";
+	import TheFooter from "../components/TheFooter.vue";
 	import TheHeader from "../components/TheHeader.vue";
 	export default {
-		components: { TheHeader, ServiceOption },
+		components: { TheHeader, ServiceOption, TheFooter },
 		setup() {
 			const services = [
 				{

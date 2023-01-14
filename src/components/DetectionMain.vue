@@ -27,15 +27,18 @@
 		<!-- Image Service -->
 		<image-selection v-else @pic-change="updatedPicture" :class="{ hidden: loading }" />
 	</section>
+
+	<the-footer />
 </template>
 
 <script>
 	import face from "../face";
 	import TheHeader from "./TheHeader.vue";
+	import TheFooter from "./TheFooter.vue";
 	import ImageSelection from "./ImageSelection.vue";
 	import TheLoader from "./TheLoader.vue";
 	export default {
-		components: { TheHeader, ImageSelection, TheLoader },
+		components: { TheHeader, ImageSelection, TheLoader, TheFooter },
 		data() {
 			return {
 				service: "",
