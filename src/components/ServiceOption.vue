@@ -6,7 +6,7 @@
 			@click="navigateTo(service.url)"
 			class="product-card-1 min-w-[300px] max-w-[600px] h-[200px] flex items-center justify-center space-y-3 p-6 m-4 rounded-lg border hover:border-4 hover:scale-105 hover:border-primary cursor-pointer transition-all duration-300">
 			<div class="hidden md:block p-4 border-r-2 border-r-zinc">
-				<img :src="service.image" alt="Generation" class="h-24" />
+				<img :src="stringToImageUrl(service.image)" alt="Generation" class="h-24" />
 			</div>
 			<div class="p-4 text-left space-y-2">
 				<h4 class="text-black text-2xl font-bold leading-6">{{ service.name }}</h4>
@@ -22,8 +22,12 @@
 		props: ["services"],
 		setup() {
 			const router = useRouter();
+
+			function stringToImageUrl(str) {
+				return new URL("../assets/" + str, import.meta.url).href;
+			}
 			const navigateTo = (str) => router.push(str);
-			return { navigateTo };
+			return { navigateTo, stringToImageUrl };
 		},
 	};
 </script>

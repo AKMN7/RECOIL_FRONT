@@ -24,7 +24,7 @@
 		emits: ["picChange"],
 		data() {
 			return {
-				selectedFile: "/assets/bbt1.jpg",
+				selectedFile: new URL("../assets/test-3.jpeg", import.meta.url).href,
 			};
 		},
 		methods: {
