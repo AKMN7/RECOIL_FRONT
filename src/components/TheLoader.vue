@@ -1,8 +1,15 @@
 <template>
-	<div class="w-full flex items-center justify-center pt-20">
-		<span class="loader mt-22"></span>
+	<div class="w-full flex flex-col items-center justify-center space-y-3 pt-12">
+		<span class="loader mt-20"></span>
+		<span class="text-white">{{ text }}</span>
 	</div>
 </template>
+
+<script>
+	export default {
+		props: ["text"],
+	};
+</script>
 
 <style scoped>
 	.loader {

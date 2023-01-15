@@ -35,12 +35,12 @@ body {
 }
 
 .product-card {
-	background: url(./assets/mesh-bg.png) no-repeat;
+	background: url(https://akmn-s3.s3.ap-northeast-1.amazonaws.com/imgs/mesh-bg.png) no-repeat;
 	background-size: cover;
 }
 
 .product-card-1 {
-	background: url(./assets/mesh-bg-1.png) no-repeat;
+	background: url(https://akmn-s3.s3.ap-northeast-1.amazonaws.com/imgs/mesh-bg-1.png) no-repeat;
 	background-size: cover;
 }
 

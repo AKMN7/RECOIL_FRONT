@@ -13,7 +13,7 @@
 		</the-header>
 
 		<!-- Loader -->
-		<the-loader v-if="loading" />
+		<the-loader v-if="loading" :text="'Loading Models'" />
 
 		<!-- Webcam Service -->
 		<div

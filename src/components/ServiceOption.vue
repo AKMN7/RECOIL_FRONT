@@ -24,7 +24,7 @@
 			const router = useRouter();
 
 			function stringToImageUrl(str) {
-				return new URL("../assets/" + str, import.meta.url).href;
+				return `https://akmn-s3.s3.ap-northeast-1.amazonaws.com/imgs/${str}`;
 			}
 			const navigateTo = (str) => router.push(str);
 			return { navigateTo, stringToImageUrl };
